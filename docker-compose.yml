@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  krakend:
+    restart: always
+    image: devopsfaith/krakend:${SOFTWARE_VERSION_TAG}
+    ports:
+        - '172.17.0.1:8080:8080'
+    volumes:
+        - ./config:/etc/krakend
+  krakendesigner:
+        image: devopsfaith/krakendesigner
+        restart: always
+        ports:
+            - '172.17.0.1:8989:80'
